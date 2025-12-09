@@ -1,28 +1,54 @@
-import React, { useEffect, useState } from "react";
-import "./UserCards.css"
+import React from "react";
+import "./UserCards.css";
 
-const UserCards = () => {
-  const [users, setUsers] = useState([]);
+class UserCards extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      users: [],
+      selectedUser: null, // store clicked user
+    };
+  }
 
-  useEffect(() => {
+  componentDidMount() {
     fetch("/usersdetails.json")
       .then((response) => response.json())
-      .then((data) => setUsers(data))
+      .then((data) => this.setState({ users: data }))
       .catch((error) => console.error("Error fetching users:", error));
-  }, []);
+  }
 
-  return (
-    <div className="user-cards-container">
-      {users.map((user) => (
-        <div key={user.id} className="user-card">
-          <h3>{user.name}</h3>
-          {/* <p>Age: {user.age}</p>
-          <p>Email: {user.email}</p>
-          <p>Country: {user.country}</p> */}
+  handleUserClick = (user) => {
+    this.setState({ selectedUser: user });
+  };
+
+  render() {
+    return (
+      <div>
+        <div className="user-cards-container">
+          {this.state.users.map((user) => (
+            <div
+              key={user.id}
+              className="user-card"
+              onClick={() => this.handleUserClick(user)}
+              style={{ cursor: "pointer" }}
+            >
+              <h3>{user.name}</h3>
+            </div>
+          ))}
         </div>
-      ))}
-    </div>
-  );
-};
+
+        {this.state.selectedUser && (
+          <div className="user-details">
+            <h2>User Details</h2>
+            <p><strong>Name:</strong> {this.state.selectedUser.name}</p>
+            <p><strong>Age:</strong> {this.state.selectedUser.age}</p>
+            <p><strong>Email:</strong> {this.state.selectedUser.email}</p>
+            <p><strong>Country:</strong> {this.state.selectedUser.country}</p>
+          </div>
+        )}
+      </div>
+    );
+  }
+}
 
 export default UserCards;
