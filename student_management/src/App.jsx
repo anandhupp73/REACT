@@ -49,12 +49,25 @@ class Student extends React.Component {
 		})
     }
   };
-  handleEdit = (event)=>{
+  handleEdit = (student) => {
+	this.setState({
+		name: student.name,
+		age: student.age,
+		department: student.department,
+		editID: student.id,
+	});
+	};
 
-  }
-  handleDelete = (event)=>{
+	handleDelete = (id) => {
+	const confirmDelete = window.confirm("Are you sure you want to delete?");
+	if (!confirmDelete) return;
 
-  }
+	const filteredStudents = this.state.students.filter(
+		(stu) => stu.id !== id
+	);
+
+	this.setState({ students: filteredStudents });
+	};
   render(){
 
 	return(
