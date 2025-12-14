@@ -16,6 +16,21 @@ class Student extends React.Component {
       editID: null,
     };
   }
+  componentDidMount() {
+    const savedStudents = localStorage.getItem("students");
+    if (savedStudents) {
+      this.setState({ students: JSON.parse(savedStudents) });
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.students !== this.state.students) {
+      localStorage.setItem(
+        "students",
+        JSON.stringify(this.state.students)
+      );
+    }
+	}
   handleChange = (event) => {
     this.setState({ [event.target.name]: event.target.value });
   };
