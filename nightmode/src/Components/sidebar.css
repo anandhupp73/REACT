@@ -1,11 +1,11 @@
 /* Sidebar container */
 .sidebar {
     width: 220px;
-    background-color: #1e1e1e;
-    color: #fff;
+    background-color: var(--bg-sidebar);
+    color: var(--text-color);
     height: 100vh;
     padding: 20px;
-    transition: width 0.3s;
+    transition: width 0.3s, background-color 0.3s, color 0.3s;
     display: flex;
     flex-direction: column;
 }
@@ -13,9 +13,10 @@
 /* Closed state */
 .sidebar.closed {
     width: 80px;
-    .logo{
-        display: none;
-    }
+}
+
+.sidebar.closed .logo {
+    display: none;
 }
 
 /* Top section: logo + toggle button */
@@ -35,7 +36,7 @@
 .toggle-btn {
     background: none;
     border: none;
-    color: #fff;
+    color: var(--text-color);
     font-size: 20px;
     cursor: pointer;
 }
@@ -57,9 +58,10 @@
     transition: background 0.3s, color 0.3s;
 }
 
+/* Hover effect adapts to theme */
 .menu li:hover {
-    background-color: #61dafb;
-    color: #000;
+    background-color: var(--menu-hover-bg);
+    color: var(--menu-hover-text);
 }
 
 /* Responsive */

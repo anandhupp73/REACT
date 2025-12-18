@@ -1,35 +1,59 @@
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* THEME VARIABLES */
+:root {
+  --bg-main: #ffffff;
+  --bg-sidebar: #f0f0f0;
+  --bg-content: #f9f9f9;
+  --text-color: #000000;
+  --navbar-bg: #ffffff;
+  --input-border: #000000;
+  --input-bg: #ffffff;
+  --input-text: #000000;
+  --input-focus: #000000;
+}
+
+[data-theme="dark"] {
+  --bg-main: #121212;
+  --bg-sidebar: #1e1e1e;
+  --bg-content: #121212;
+  --text-color: #ffffff;
+  --navbar-bg: #1a1a1a;
+  --input-border: #555555;
+  --input-bg: #1e1e1e;
+  --input-text: #ffffff;
+  --input-focus: #61dafb;
 }
 body {
-  margin: 0;
-  padding: 0;
   font-family: Arial, sans-serif;
   height: 100vh;
 }
+
 .app-container {
   display: flex;
   flex-direction: column;
   height: 100vh;
+  background-color: var(--bg-main);
+  color: var(--text-color);
 }
 
 .main-area {
   display: flex;
-  flex: 1; /* fill remaining space below navbar */
+  flex: 1;
 }
 
-/* Sidebar styling */
 .sidebar {
-  width: 220px; /* same width as your Sidebar component */
-  background-color: #1e1e1e;
+  width: 220px;
+  background-color: var(--bg-sidebar);
 }
 
-/* Page content next to sidebar */
 .page-content {
   flex: 1;
   padding: 20px;
-  background-color: #121212; /* dark background */
-  color: #fff;
+  background-color: var(--bg-content);
+  color: var(--text-color);
 }

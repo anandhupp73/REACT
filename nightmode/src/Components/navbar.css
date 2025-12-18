@@ -1,13 +1,17 @@
 /* General Navbar container */
 .navbar {
+  height: 60px;
+  background-color: var(--navbar-bg);
+  color: var(--text-color);
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   padding: 10px 20px;
-  background-color: #1e1e1e; /* Dark background */
-  color: #ffffff; /* White text */
-  font-family: Arial, sans-serif;
-  padding: 10px 20px 10px 20px;
+}
+
+.modebtn {
+  padding: 6px 12px;
+  cursor: pointer;
 }
 
 /* Left section - menu items */
@@ -36,16 +40,19 @@
 .center .search-input {
   padding: 6px 12px;
   border-radius: 20px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--input-border);
+  background-color: var(--input-bg);
+  color: var(--input-text);
   outline: none;
   width: 200px;
   transition: all 0.3s;
 }
 
 .center .search-input:focus {
-  border-color: #61dafb;
-  box-shadow: 0 0 5px #61dafb;
+  border-color: var(--input-focus);
+  box-shadow: 0 0 5px var(--input-focus);
 }
+
 
 .right{
   display: flex;
