@@ -1,0 +1,80 @@
+/* Sidebar container */
+.sidebar {
+    width: 220px;
+    background-color: #1e1e1e;
+    color: #fff;
+    height: 100vh;
+    padding: 20px;
+    transition: width 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Closed state */
+.sidebar.closed {
+    width: 80px;
+    .logo{
+        display: none;
+    }
+}
+
+/* Top section: logo + toggle button */
+.top-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+
+.logo {
+    width: 40px;
+    height: 40px;
+}
+
+/* Toggle button */
+.toggle-btn {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* Menu items */
+.menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.menu li {
+    cursor: pointer;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: background 0.3s, color 0.3s;
+}
+
+.menu li:hover {
+    background-color: #61dafb;
+    color: #000;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .sidebar {
+        position: fixed;
+        left: 0;
+        top: 0;
+        height: 100%;
+        z-index: 100;
+        transform: translateX(-100%);
+        transition: transform 0.3s;
+    }
+
+    .sidebar.open {
+        transform: translateX(0);
+    }
+}

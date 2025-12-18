@@ -1,0 +1,88 @@
+/* General Navbar container */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #1e1e1e; /* Dark background */
+  color: #ffffff; /* White text */
+  font-family: Arial, sans-serif;
+  padding: 10px 20px 10px 20px;
+}
+
+/* Left section - menu items */
+.left ul {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+}
+
+.left li {
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.left li:hover {
+  color: #61dafb; /* React blue highlight */
+}
+
+/* Center section - search bar */
+.center .search-bar {
+  position: relative;
+}
+
+.center .search-input {
+  padding: 6px 12px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  outline: none;
+  width: 200px;
+  transition: all 0.3s;
+}
+
+.center .search-input:focus {
+  border-color: #61dafb;
+  box-shadow: 0 0 5px #61dafb;
+}
+
+.right{
+  display: flex;
+  flex-direction: row;
+  gap: 25px;
+}
+.modebtn{
+  background-color:white;
+  padding: 8px;
+  border-radius: 20px;
+  border: 1px solid rgb(218, 113, 113);
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* Right section - logo */
+.right .logo img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+/* Responsive for small screens */
+@media (max-width: 768px) {
+  div > div {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .left ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .center .search-input {
+    width: 100%;
+  }
+}
