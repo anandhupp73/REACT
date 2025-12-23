@@ -4,6 +4,7 @@ import Home from "./Components/Home/Home"
 import About from "./Components/About/About"
 import Contacts from "./Components/Contact/Contact"
 import Layout from "./Components/Layout";
+import Login from "./Components/Login/Login"
 
 
 
@@ -11,11 +12,12 @@ function App(){
   return(
     <Router>
       <Routes>
-        <Route path="/" element={<Layout/>}>
-          <Route index element={<Home />} />
-          <Route path="/about" element={<About/>}/>
-          <Route path="/contact" element={<Contacts/>}/>
-        </Route>
+        <Route path="/" element={<Login/>}/>
+          <Route element={<Layout/>}>
+            <Route path="/home" element={<Home/>}/>
+            <Route path="/about" element={<About/>}/>
+            <Route path="/contact" element={<Contacts/>}/>
+          </Route>
       </Routes>
     </Router>
   )
