@@ -1,0 +1,23 @@
+.container {
+  width: 400px;
+  margin: auto;
+  font-family: Arial;
+}
+
+input {
+  padding: 8px;
+  margin: 5px 0;
+  width: 100%;
+}
+
+button {
+  margin-top: 5px;
+  padding: 6px;
+  cursor: pointer;
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  margin: 5px 0;
+}
